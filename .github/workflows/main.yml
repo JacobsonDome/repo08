@@ -1,12 +1,18 @@
 name: hello-world3
-on: push
+on:
+  push:
+    branches:
+      - main
+      - feature-branche-01
 jobs:
   my-jobs:
+    if: github.ref == 'refs/heads/feature-branche-01'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - name: my-step1
-        run: |
-           echo "${{secrets.REPO08 }}" | docker login -u "santosch" --password-stdin
-           docker image build -t santosch/repo08:v${{ github.run_number }} .
-           docker push santosch/repo08:v${{ github.run_number }}
+        run: echo ${{github.ref}}
+#        run: |
+#           echo "${{secrets.REPO08 }}" | docker login -u "santosch" --password-stdin
+#           docker image build -t santosch/repo08:v${{ github.run_number }} .
+#           docker push santosch/repo08:v${{ github.run_number }}
