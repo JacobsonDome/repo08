@@ -26,4 +26,4 @@ jobs:
         run: |
          echo "${{secrets.REPO08PROD }}" | docker login -u "santosch" --password-stdin
          docker image build -t santosch/reop08prod:v${{ github.run_number }} .
-         docker push santosch/reop08prod:v${{ github.run_number }}          
+         docker push santosch/reop08prod:v${{ github.run_number }}
