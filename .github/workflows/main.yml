@@ -18,14 +18,15 @@ jobs:
           docker push santosch/repo08:v${{ github.run_number }}
           
   prod:
-    if: github.ref == 'refs/header/main'
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - name: my-step2
         run: |
          echo "${{secrets.REPO08PROD }}" | docker login -u "santosch" --password-stdin
-         docker image build -t santosch/repo08prod:v${{ github.run_rumber }} .
+         docker image build -t santosch/reop08prod:v${{ github.run_number }} .
+         docker push santosch/reop08prod:v${{ github.run_number }}
          docker push santosch/repo08prod:v${{ github.run_number }}         
           
             
