@@ -22,7 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: my-step2
+      - name: my-step3
         run: |
          echo "${{secrets.REPO08PROD }}" | docker login -u "santosch" --password-stdin
          docker image build -t santosch/reop08prod:v${{ github.run_rumber }} .
