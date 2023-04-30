@@ -18,7 +18,7 @@ jobs:
           docker push santosch/repo08:v${{ github.run_number }}
           
   prod:
-    if: github.ref == 'refs/header/main'
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
